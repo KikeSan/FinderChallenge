@@ -43,64 +43,64 @@ var pathData = [
     "src/*.json"
 ];
 
-var taskPugSelf = function(){
+var taskPugSelf = function() {
     return gulp.src(pathsView)
         .pipe(pug({
             pretty: true
         }))
         .pipe(gulp.dest("./public"));
 };
-gulp.task("view", function(){
+gulp.task("view", function() {
     return taskPugSelf();
 });
 
-var taskStylusSelf = function(){
+var taskStylusSelf = function() {
     return gulp.src(pathsStyles)
         .pipe(stylus({
-            use:[rupture()]
+            use: [rupture()]
         }))
         .pipe(gulp.dest("./public/styles"));
 };
 
-gulp.task("styles", function(){
+gulp.task("styles", function() {
     return taskStylusSelf();
 });
 
-var taskScriptsSelf = function(){
+var taskScriptsSelf = function() {
     return gulp.src(pathsScripts)
         .pipe(gulp.dest("./public/scripts"));
 };
-gulp.task("scripts", function(){
+gulp.task("scripts", function() {
     return taskScriptsSelf();
 });
 
-gulp.task("data", function(){
+gulp.task("data", function() {
     return gulp.src(pathData)
         .pipe(gulp.dest("./public/"));
 });
 
-var taskVendorSelf = function(){
+var taskVendorSelf = function() {
     return gulp.src(pathVendor)
         .pipe(gulp.dest("./public/vendor"));
 };
-gulp.task("vendor", function(){
+gulp.task("vendor", function() {
     return taskVendorSelf();
 });
 
-gulp.task("watch", function(){
-    gulp.watch(pathsViewToWatch, function(){
+gulp.task("watch", function() {
+    gulp.watch(pathsViewToWatch, function() {
         taskPugSelf();
     });
 
-    gulp.watch(pathsStylesToWatch, function(){
+    gulp.watch(pathsStylesToWatch, function() {
         taskStylusSelf();
     });
 
-    gulp.watch(pathsScriptsToWatch, function(){
+    gulp.watch(pathsScriptsToWatch, function() {
         taskScriptsSelf();
     });
 
-    gulp.watch(pathsVendorToWatch, function(){
+    gulp.watch(pathsVendorToWatch, function() {
         taskVendorSelf();
     });
 
@@ -108,7 +108,7 @@ gulp.task("watch", function(){
     gulp.watch("./public/**/*.*").on("change", browserSync.reload);
 });
 
-gulp.task("ServerBrowserSync", function(){
+gulp.task("ServerBrowserSync", function() {
     browserSync.init({
         port: 8089,
         server: {
