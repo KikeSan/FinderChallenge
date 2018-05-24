@@ -7,12 +7,13 @@ function searchForm() {
     var _keypress = 0;
 
     function myEventHandler(e) {
-        _keypress++
+        _keypress = document.getElementById('fch-input').value.length;
         //console.log('size: ' + this.value);
-        if (_keypress >= 2) {
+        if(_keypress >= 2) {
             document.getElementById('fch-button').removeAttribute("disabled");
+        } else if(_keypress < 2) {
+            document.getElementById('fch-button').setAttribute("disabled", "true");
         }
-
 
 
     };
@@ -21,8 +22,8 @@ function searchForm() {
 function revisa(bd) {
     var arrBD = [],
         i;
-    for (i = 0; i <= bd.data.length; i++) {
-        arrBD.push(bd.data[0].title);
+    for(i = 0; i < bd.data.length; i++) {
+        arrBD.push(bd.data[i].title);
     }
     console.log(bd.data.length);
     console.log(bd.data[0].title);
