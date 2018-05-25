@@ -15,10 +15,35 @@ html(lang="es")
                 .pure-u-1-3
                     h1.logo
                         img(src="/img/logo.jpg")
-                .pure-u-7-24
+                .pure-u-1-2
                     include blocks/search-form
-                .pure-u-1-3
+                .pure-u-1-12
+                    a(href="#").linksearch Guardar Búsqueda
             aside.filters.pure-u-1-4
+                h1.asideTitles Búsquedas Guardadas
+                a(href="#" lb-genero="horror") Terror Puro
+                a(href="#" lb-genero="comedy") Comedias en inglés
+                h1.asideTitles Categorías
+                a(href="#") Todos
+                a(href="#" lb-genero="horror") Terror
+                a(href="#" lb-genero="comedy") Comedias
+                a(href="#" lb-genero="drama") Drama
+                h1.asideTitles Idioma
+                a(href="#") Todos
+                a(href="#") Inglés
+                a(href="#") Español
+                a(href="#") Portugués
+                h1.asideTitles Publicación
+                a(href="#") Todos
+                a(href="#") Hoy
+                a(href="#") Hace una semana
+                a(href="#") Hace un mes
+                a(href="#") Hace un año
+                h1.asideTitles Presentación
+                a(href="#") Impreso
+                a(href="#") Digital
+                a(href="#") Impreso y digital
+
             content.pure-u-3-4
             footer.pure-u-1
 
@@ -26,6 +51,7 @@ html(lang="es")
         script(src="/vendor/underscore/underscore-min.js")
 
         //- app scripts self
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
         script(src="/scripts/global.js")
         script(src="/scripts/search-form.js")
         script(src="/scripts/app.js")

@@ -2,4 +2,6 @@
   main script for only runs every function
 */
 
-searchForm();
+$(window).ready(function() {
+    searchForm().run();
+});

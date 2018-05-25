@@ -1,37 +1,26 @@
 function searchForm() {
     // code here
-    var map = Array.prototype.map;
-    loadJSON(JSON_FILE, revisa);
+    return {
+        run: function() {
+            $.getJSON(JSON_FILE, global().setBD);
 
-    document.getElementById('fch-input').addEventListener("keyup", myEventHandler, false);
-    var _keypress = 0;
+            $('#fch-input').keyup(function(e) {
+                if($(this).val().length > 2) {
+                    $('#fch-button').prop('disabled', false);
+                } else {
+                    $('#fch-button').prop('disabled', true);
+                }
 
-    function myEventHandler(e) {
-        _keypress = document.getElementById('fch-input').value.length;
-        //console.log('size: ' + this.value);
-        if(_keypress >= 2) {
-            document.getElementById('fch-button').removeAttribute("disabled");
-        } else if(_keypress < 2) {
-            document.getElementById('fch-button').setAttribute("disabled", "true");
+                if(e.keyCode == 13) {
+                    if(!$('#fch-button').prop('disabled')) {
+                        global().buildResult($(this).val());
+                    }
+                }
+            });
+
+            $("#fch-button").click(function(event) {
+                global().buildResult($('#fch-input').val());
+            });
         }
-
-
     };
-}
-
-function revisa(bd) {
-    var arrBD = [],
-        i;
-    for(i = 0; i < bd.data.length; i++) {
-        arrBD.push(bd.data[i].title);
-    }
-    console.log(bd.data.length);
-    console.log(bd.data[0].title);
-    console.log(arrBD);
-    var input = document.getElementById("fch-input");
-    new Awesomplete(input, {
-        list: arrBD,
-        minChars: 3,
-        maxItems: 15,
-    });
 }
