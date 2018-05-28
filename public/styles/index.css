@@ -13,7 +13,6 @@ header {
 }
 .logo img {
   width: 220px;
-  display: none;
 }
 content div.pure-u-1-3 .holder {
   text-align: center;
@@ -24,6 +23,20 @@ content div.pure-u-1-3 .holder span {
   text-align: left;
   display: block;
   font-size: 13px;
+}
+aside {
+  padding-top: 25px;
+}
+aside a {
+  background: #ddd;
+  padding: 10px 10px 10px 20px;
+  margin-bottom: 2px;
+  text-decoration: none;
+  color: #363636;
+}
+aside a:hover {
+  background: #3e3d3d;
+  color: #fff;
 }
 h1 {
   font-size: 18px;
@@ -81,8 +94,9 @@ a {
   opacity: 0.5;
 }
 .linksearch {
-  padding: 33px 0;
+  padding: 43px 0;
   position: absolute;
+  color: #ffa500;
 }
 @media only screen and (max-width: 650px) {
   .search-form {
